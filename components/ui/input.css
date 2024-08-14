@@ -1,0 +1,12 @@
+.shadcn-number-input::-webkit-inner-spin-button {
+  width: 14px;
+  height: 30px;
+}
+.shadcn-number-input::-moz-inner-spin-button {
+  width: 14px;
+  height: 30px;
+}
+.shadcn-number-input::-ms-inner-spin-button {
+  width: 14px;
+  height: 30px;
+}

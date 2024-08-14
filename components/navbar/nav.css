@@ -1,0 +1,15 @@
+@media only screen and (max-width: 1280px) {
+  .controll-nav {
+    display: none;
+  }
+}
+
+.showNav {
+  display: flex !important;
+}
+.custom-tooltip-content {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  /* Add other style properties as needed */
+}

@@ -1,0 +1,308 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: var(--font-mono);
+  /* This is not actually being considered. Need to check this */
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --row-font-size: 12px;
+  --header-font-size: 12px;
+}
+
+#tradingview_b0e7f {
+  width: 717px;
+  height: 541px;
+}
+
+@layer utilities {
+  .shadow-sharp-lg-purple {
+    box-shadow: 8px 8px 0 0 rgb(49, 46, 129);
+  }
+
+  .shadow-sharp-lg-gray {
+    box-shadow: 8px 8px 0 0 rgb(31, 41, 55);
+  }
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+h1 {
+  /* Equivalent to text-5xl  */
+  font-size: 3rem; /* 48px */
+  line-height: 1;
+  font-weight: 700;
+}
+
+h2 {
+  /* Equivalent to text-4xl  */
+  font-size: 2.25rem; /* 36px */
+  line-height: 2.5rem; /* 40px */
+  font-weight: 600;
+}
+
+h3 {
+  /* Equivalent to text-3xl  */
+  font-size: 1.875rem; /* 30px */
+  line-height: 2.25rem; /* 36px */
+  font-weight: 500;
+}
+
+h4 {
+  /* Equivalent to text-2xl  */
+  font-size: 1.5rem; /* 24px */
+  line-height: 2rem; /* 32px */
+  font-weight: 400;
+}
+
+h5 {
+  /* Equivalent to text-xl  */
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.75rem; /* 28px */
+  font-weight: 300;
+}
+
+h6 {
+  /* Equivalent to text-lg  */
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.75rem; /* 28px */
+  font-weight: 200;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #2d2c2c;
+    background-color: #131313;
+  }
+}
+
+@layer base {
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"] {
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance: textfield !important;
+    appearance: textfield !important;
+  }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 18px 0;
+    width: 100%;
+  }
+
+  input[type="range"]:focus {
+    outline: none;
+  }
+
+  input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 2px;
+    cursor: pointer;
+    background: rgba(156, 163, 175, 0.25);
+    border-radius: 9999px;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    height: 12px;
+    width: 12px;
+    background: #ffffff;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -5px;
+    border-radius: 9999px;
+  }
+
+  input[type="range"]:focus::-webkit-slider-runnable-track {
+    background: #9ca3af;
+  }
+
+  input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    background: #9ca3af;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    height: 36px;
+    width: 4px;
+    background: #ffffff;
+    cursor: pointer;
+    border-radius: 9999px;
+  }
+
+  input[type="range"]::-ms-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    background: transparent;
+    color: transparent;
+  }
+
+  input[type="range"]::-ms-fill-lower {
+    background: #9ca3af;
+  }
+
+  input[type="range"]::-ms-fill-upper {
+    background: #9ca3af;
+  }
+
+  input[type="range"]::-ms-thumb {
+    height: 36px;
+    width: 4px;
+    background: #ffffff;
+    cursor: pointer;
+    border-radius: 9999px;
+  }
+
+  input[type="range"]:focus::-ms-fill-lower {
+    background: #9ca3af;
+  }
+
+  input[type="range"]:focus::-ms-fill-upper {
+    background: #9ca3af;
+  }
+}
+
+@layer utilities {
+  .underlying {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+  }
+}
+
+.loader-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background: #00000094;
+  text-align: center;
+  vertical-align: middle;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  color: #fff;
+}
+
+.modal {
+  position: relative;
+  align-items: stretch;
+  background-color: #080808;
+  display: flex;
+  /* font-size: 48px; */
+  /* font-weight: 500; */
+  height: 100%;
+  justify-content: space-evenly;
+  position: relative;
+  width: 100%;
+  flex-direction: column-reverse;
+  flex-wrap: wrap;
+  align-content: stretch;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding-right: 5px;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+.custom-body {
+  cursor: default;
+}
+.SelectContent {
+  width: var(--radix-select-trigger-width);
+}

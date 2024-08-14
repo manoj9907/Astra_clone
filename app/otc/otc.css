@@ -1,0 +1,453 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+.center {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.top_button {
+  margin-bottom: 50px;
+  display: flex;
+  gap: 7px;
+}
+
+.market_button {
+  cursor: pointer;
+  font-family: IBM Plex Mono;
+  color: #131313;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  padding: 4px 10px;
+  font-size: 18px;
+  width: 124px;
+  height: 45px;
+  text-align: center;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  line-height: 23.4px;
+}
+.limit_button {
+  cursor: pointer;
+  color: #f2f2f2;
+  font-family: IBM Plex Mono;
+  background-color: #1e1e1e;
+  border-radius: 5px;
+  padding: 4px 10px;
+  font-size: 18px;
+  width: 124px;
+  height: 45px;
+  text-align: center;
+  margin-bottom: 10px;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  line-height: 23.4px;
+}
+.buy_tag {
+  font-family: IBM Plex Mono;
+  font-weight: 700;
+  font-size: 16px;
+  color: #f2f2f2;
+  padding-left: 18px;
+  line-height: 20.8px;
+  margin-bottom: 6px;
+}
+
+.input_select {
+  display: flex;
+  border-color: transparent;
+  border-width: 1px;
+  border-radius: 8px;
+}
+.input_select:hover {
+  border-color: #7fc047;
+  border-width: 1px;
+  border-radius: 8px;
+}
+
+input.input_field:focus {
+  outline: none;
+}
+.input_select_sell {
+  display: flex;
+  border-color: transparent;
+  border-width: 1px;
+  border-radius: 8px;
+}
+
+.input_select_sell:hover {
+  border-color: #c04747;
+  border-width: 1px;
+}
+.input_select_sell:active:focus {
+  outline: none;
+}
+
+.input_field {
+  height: 80px;
+  width: 375px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: #27292c;
+  color: #f2f2f2;
+  font-size: 24px;
+  font-family: IBM Plex Mono;
+  line-height: 31.2px;
+  text-indent: 18px;
+  font-weight: 500;
+}
+
+.input_field::placeholder {
+  color: #a7a7a7;
+  font-family: IBM Plex Mono;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 31.2px;
+  text-indent: 18px;
+}
+.buy_sell_image_icon {
+  height: 24px;
+  width: 24px;
+  margin: 18px;
+}
+
+.select_field {
+  height: 80px;
+  width: 120px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: #1e1e1e;
+  font-family: IBM Plex Mono;
+  font-weight: 500;
+  font-size: 8px;
+  color: #f2f2f2;
+}
+
+.balance_text {
+  font-family: IBM Plex Mono;
+  line-height: 18.2px;
+  font-size: 14px;
+  color: #ffffff;
+  padding-left: 18px;
+  padding-top: 8px;
+  font-weight: 400;
+}
+.balance_text_red {
+  font-family: IBM Plex Mono;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18.2px;
+  color: #ffc700;
+}
+
+.dropdown_sell {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #1e1e1e;
+  width: 120px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 8px;
+}
+
+.dropdown_image {
+  height: 25px;
+  width: 25px;
+}
+.drop_down_icon {
+  height: 6.67px;
+  width: 8.33px;
+}
+.dropdown_name {
+  font-size: 16px;
+  color: #f2f2f2;
+  font-weight: 500;
+  line-height: 20.8px;
+}
+
+button:disabled {
+  background-color: #a7a7a7;
+}
+
+.request_price {
+  margin-top: 18px;
+
+  height: 60px;
+  width: 494px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  font-family: IBM Plex Mono;
+  font-size: 18px;
+  text-align: center;
+  padding: 15px;
+  color: #000000;
+  font-weight: 700;
+  line-height: 23.4px;
+}
+.background {
+  height: 567px;
+  width: 494px;
+  border-radius: 13px;
+  background-color: #27292c;
+  padding-right: 8px;
+}
+::-webkit-scrollbar {
+  background: transparent;
+  width: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: #e5e0eb;
+  border-radius: 10px;
+}
+.currencies_list {
+  padding: 0px 30px;
+  height: 400px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.header_currency {
+  display: flex;
+  justify-content: space-between;
+}
+.search_header {
+  position: sticky;
+  top: 0;
+  padding-left: 27px;
+  padding-right: 19px;
+  padding-top: 30px;
+  padding-bottom: 27px;
+  background: #27292c;
+  border-top-left-radius: 13px;
+  border-top-right-radius: 13px;
+}
+.select_currency {
+  font-family: IBM Plex Mono;
+  font-size: 16px;
+  line-height: 20.8px;
+  font-weight: 700;
+  color: #f2f2f2;
+}
+
+.input_search {
+  margin-top: 30px;
+  position: relative;
+}
+.input_search img {
+  position: absolute;
+
+  top: 16px;
+  left: 14px;
+}
+.search_bar {
+  background-color: #131313;
+  height: 50px;
+  width: 441px;
+  padding-left: 40px;
+  border-radius: 7px;
+  border-color: #f2f2f2;
+  border-width: 1px;
+  font-weight: 600;
+  size: 14px;
+  line-height: 18.2px;
+  color: #f2f2f2;
+}
+.search_bar::placeholder {
+  color: #f2f2f2;
+  font-weight: 600;
+  size: 14px;
+  line-height: 18.2px;
+}
+.close_button {
+  height: 15.45px;
+  width: 15.45px;
+}
+.search_list {
+  display: flex;
+  align-items: center;
+}
+.search_info {
+  padding-left: 5px;
+}
+.tether_image {
+  width: 35px;
+  height: 35px;
+}
+.currency_name_list {
+  font: IBM Plex Mono;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18.2px;
+  color: #f2f2f2;
+}
+.crypto_name_list {
+  font: IBM Plex Mono;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15.6px;
+  color: #f2f2f2;
+}
+.quote_container {
+  height: 451px;
+  width: 494px;
+}
+
+.background_quote {
+  background-color: #27292c;
+  border-radius: 13px;
+  padding: 23px 27px;
+  width: 494px;
+}
+
+.header_quote {
+  display: flex;
+  justify-content: space-between;
+}
+.select_header {
+  font-family: IBM Plex Mono;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20.8px;
+  color: #f2f2f2;
+  margin-bottom: 8px;
+}
+.coin_price {
+  display: flex;
+  justify-content: space-between;
+}
+.image_coin {
+  padding-right: 8px;
+}
+.image_text {
+  font-family: IBM Plex Mono;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23.4px;
+  color: #f2f2f2;
+}
+.image_count {
+  font-family: IBM Plex Mono;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20.8px;
+}
+.coin_text {
+  display: flex;
+}
+
+.arrow_image {
+  padding: 9px 4px;
+}
+.rate_chart {
+  margin-top: 29px;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+.rate_text {
+  font-family: IBM Plex Mono;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16.9px;
+  color: #f2f2f2;
+}
+.rate_price {
+  font-family: IBM Plex Mono;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15.6px;
+  color: #f2f2f2;
+}
+
+.Inverse_rate_chart {
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+.Fees_price {
+  font-family: IBM Plex Mono;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15.6px;
+  color: #22c55e;
+}
+.receive_text {
+  font-family: IBM Plex Mono;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20.8px;
+  color: #f2f2f2;
+}
+.receive_price {
+  font-family: IBM Plex Mono;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20.8px;
+  color: #f2f2f2;
+}
+.receive_rate_chart {
+  margin-top: 26px;
+  margin-bottom: 23px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button_group {
+  margin-top: 18px;
+  width: 494px;
+  height: 60px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  font-family: IBM Plex Mono;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20.8px;
+  color: #000000;
+  text-align: center;
+  align-content: center;
+  border-width: 3px;
+  border-color: #f2f2f2;
+}
+.sucess_container {
+  height: 373px;
+  width: 494px;
+  padding: 23px 27px;
+  border-color: #f2f2f2;
+  border-width: 1px;
+  border-radius: 13px;
+}
+
+.close_button_sucess {
+  height: 15.45px;
+  width: 15.45px;
+  margin-left: auto;
+}
+.sucess_img {
+  display: flex;
+  margin-top: 90px;
+  align-items: center;
+  flex-direction: column;
+}
+.sucess_price {
+  font-family: IBM Plex Mono;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 31.2px;
+  color: #f2f2f2;
+  margin-top: 22px;
+}
+.trade_status {
+  font-family: IBM Plex Mono;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18.2px;
+  color: #f2f2f2;
+  margin-top: 7px;
+}

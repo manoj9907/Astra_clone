@@ -1,0 +1,26 @@
+.date {
+  height: 30px;
+  width: 30px;
+  border-radius: 10%;
+}
+.date:not(.selected-date):hover {
+  background-color: #27272a !important;
+}
+
+.today-date {
+  background-color: #27272a !important;
+}
+
+.selected-date {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.selected-date:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+.year-select button {
+  padding: 5px;
+  border: 1px solid rgba(156, 163, 175, 0.25) !important;
+}

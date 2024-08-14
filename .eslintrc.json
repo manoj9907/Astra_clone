@@ -1,0 +1,69 @@
+{
+  "root": true,
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2021": true
+  },
+  "extends": ["eslint:recommended", "airbnb", "next", "prettier"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    // Add custom rules or override default rules here
+    "react/prop-types": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "no-restricted-syntax": [
+      "error",
+      "ForInStatement",
+      "LabeledStatement",
+      "WithStatement"
+    ], // Allow the use of ForOfStatement
+    "no-console": ["warn", { "allow": ["warn", "error", "info"] }],
+    "no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
+    "import/prefer-default-export": "warn",
+    "prefer-template": "warn",
+    "default-case": "warn",
+    "prefer-destructuring": "warn",
+    "object-shorthand": "warn",
+    "prefer-const": "warn",
+    "import/extensions": [
+      "error",
+      {
+        "svg": "always",
+        "png": "always",
+        "css": "always"
+      }
+    ],
+    "import/no-unresolved": "off",
+    "react/function-component-definition": "warn",
+    "react/jsx-no-useless-fragment": "warn",
+    "react/jsx-fragments": "warn",
+    "react/button-has-type": "warn",
+    "react/no-unstable-nested-components": "warn",
+    "jsx-a11y/no-static-element-interactions": "warn",
+    "jsx-a11y/click-events-have-key-events": "warn",
+    "@next/next/no-img-element": "warn",
+    "jsx-a11y/no-noninteractive-element-interactions": "warn",
+    "spaced-comment": "warn",
+    "jsx-a11y/img-redundant-alt": "warn",
+    "react/no-array-index-key": "warn",
+    "class-methods-use-this": "warn",
+    "react/jsx-props-no-spreading": "off" // We use props spreading extensively in our UI component framework
+  }
+}

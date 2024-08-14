@@ -1,0 +1,31 @@
+.capitalize {
+  text-transform: capitalize;
+}
+
+.letterSpacing {
+  letter-spacing: 2;
+}
+
+.createapi-input {
+  background-color: #000000;
+  padding-right: 0px;
+}
+
+.createapi-modal {
+  width: 400px;
+  height: 268px;
+}
+
+.getapikey-modal {
+  width: 450px;
+  height: 300px;
+}
+
+.apikeyalerttext {
+  color: #ffc700;
+}
+@media screen and (min-width: 768px) {
+  .flex-row:hover tbody {
+    overflow-y: auto;
+  }
+}

@@ -1,0 +1,11 @@
+.tradingview-widget-container iframe html .feature-touch #widget-container {
+  border: none !important;
+}
+.tradingview-widget-container iframe * {
+  border: none !important; /* Use !important for forceful override */
+  /* Add other style overrides as needed */
+}
+
+.tradingview-widget-container iframe #widget-container {
+  border: none !important;
+}
