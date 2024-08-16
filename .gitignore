@@ -54,4 +54,3 @@ load_secrets.sh
 
 package-lock.json
 .env
-marketData.db
