@@ -1,4 +1,4 @@
-/* eslint-disable no-bitwise */
+/ eslint-disable no-bitwise /
 import { createServer } from 'http';
 import { parse } from 'url';
 import next from 'next';
@@ -74,75 +74,71 @@ const triggerFtsIndex = async (marketData) => {
 };
 
 const collectMarketData = async () => {
-    try {
-      const db = new sqlite3.Database(
-        "./marketData.db",
-        sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE,
-        (err) => {
-          if (err) {
-            throw err;
-          } else {
-            console.info("Connected to the SQLite database.");
-          }
-        },
-      );
-  
-      await db.serialize(() => {
-        db.run(
-          `CREATE TABLE IF NOT EXISTS marketData (
-                id INTEGER PRIMARY KEY,
-                ftsindex TEXT
-            )`,
-          (err) => {
-            if (err) {
-              throw err;
-            } else {
+  return new Promise((resolve, reject) => {
+    const db = new sqlite3.Database(
+      "./marketData.db",
+      sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE,
+      (err) => {
+        if (err) {
+          console.error("Failed to connect to the SQLite database:", err);
+          reject(err); // Reject if the database connection fail
+          return;
+        }
+
+        console.info("Connected to the SQLite database.");
+
+        db.serialize(() => {
+          db.run(
+            `CREATE TABLE IF NOT EXISTS marketData (
+                  id INTEGER PRIMARY KEY,
+                  ftsindex TEXT
+              )`,
+            (err) => {
+              if (err) {
+                console.error("Failed to create marketData table:", err);
+                reject(err); // Reject if table creation fails
+                return;
+              }
+
               console.info("marketData table created or already exists.");
+
+              // Continue with data insertion and processing
+              Promise.allSettled(exchanges.map((exchange) => fetchMarket(exchange)))
+                .then(async (results) => {
+                  const marketData = results
+                    .filter((result) => result.status === "fulfilled")
+                    .map((result) => result.value);
+
+                  const ftsIndex = await triggerFtsIndex(marketData);
+
+                  db.run(
+                    `INSERT OR REPLACE INTO marketData (id, ftsindex) VALUES(1, ?)`,
+                    ftsIndex,
+                    (err) => {
+                      if (err) {
+                        console.error("Failed to insert market data:", err);
+                        reject(err); // Reject if insertion fails
+                        return;
+                      }
+
+                      console.info("Market data inserted into the marketData table.");
+                      resolve(); // Resolve on success
+                    }
+                  );
+                })
+                .catch((error) => {
+                  console.error("Failed to process market data:", error);
+                  reject(error); // Reject if market data processing fails
+                });
             }
-          },
-        );
-      });
-  
-      const results = await Promise.allSettled(
-        exchanges.map((exchange) => fetchMarket(exchange)),
-      );
-  
-      const marketData = results
-        .filter((result) => result.status === "fulfilled")
-        .map((result) => result.value);
-  
-      const ftsIndex = await triggerFtsIndex(marketData);
-  
-      await db.serialize(() => {
-        const insertSql = `INSERT OR REPLACE INTO marketData (id, ftsindex) VALUES(1, ?)`;
-  
-        db.run(insertSql, ftsIndex, (err) => {
-          if (err) {
-            throw err;
-          } else {
-            console.info("Market data inserted into the marketData table.");
-          }
+          );
         });
-  
-        db.close((err) => {
-          if (err) {
-            throw err;
-          } else {
-            console.info("SQLite database connection closed.");
-          }
-        });
-      });
-  
-      return true;
-    } catch (error) {
-      console.error("Error collecting market data:", error);
-      throw new Error(error.message);
-    }
-  };
-  
+      }
+    );
+  });
+};
 
 // Modify the server setup to include data collection before starting the server
-
 app.prepare().then(async () => {
   try {
     // Call the collectMarketData function before starting the server
@@ -157,7 +153,8 @@ app.prepare().then(async () => {
       if (err) throw err;
     });
   } catch (error) {
-    console.error("Failed to collect market data or start server:", error);
-    process.exit(1); // Exit the process if data collection fails
+    console.error("Failed to collect market data:", error);
+    process.exit(1); // Exit the process with an error code if data collection fails
   }
 });
+
